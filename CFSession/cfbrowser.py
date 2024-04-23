@@ -274,10 +274,10 @@ class cfSession():
             if self._is_cf_site(caught_exception.response.text):
                 self.exception = CloudflareBlocked(response=caught_exception.response)
             self.exception = HTTPError(response=caught_exception.response)
-        if content != None: #Explicit None as non-200 http response is regarded as falsy
-            content.raise_for_status = lambda: self._response_hook_raiseforstatus()
-        else:
-            raise self.exception
+        #if content != None: #Explicit None as non-200 http response is regarded as falsy
+        #    content.raise_for_status = lambda: self._response_hook_raiseforstatus()
+        #else:
+        #    raise self.exception
         return content    
 
     def _response_hook_raiseforstatus(self):

@@ -147,7 +147,7 @@ class Proxy(UserDict):
         url = f'{protocol}://httpbin.org/ip'
         try:
             response=requests.get(url, proxies=self)
-            response.raise_for_status()
+            #response.raise_for_status()
             decoded_resp = response.json()
         except requests.exceptions.HTTPError as e:
             decoded_resp = {

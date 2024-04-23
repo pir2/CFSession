@@ -231,7 +231,7 @@ class cfSession():
         for t in range(0,self.tries+1):
             try:
                 content = self.session.request(method=method, url=url,**kwargs)   
-                content.raise_for_status()
+                #content.raise_for_status()
                 return content
             except requests.exceptions.HTTPError as e:
                 #Only HTTPERROR should we catch e.response
